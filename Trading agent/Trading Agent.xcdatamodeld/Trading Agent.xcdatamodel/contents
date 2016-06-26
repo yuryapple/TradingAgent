@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+    <entity name="Client" syncable="YES">
+        <attribute name="clientID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="homeNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobileNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Order" syncable="YES">
+        <attribute name="clientID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateOrder" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="numberOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="objectIDOrderParse" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="orderProducts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderProduct" inverseName="order" inverseEntity="OrderProduct" syncable="YES"/>
+    </entity>
+    <entity name="OrderProduct" syncable="YES">
+        <attribute name="objectIDProductParse" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="units" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="orderProducts" inverseEntity="Order" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Client" positionX="-180" positionY="-27" width="128" height="120"/>
+        <element name="Order" positionX="45" positionY="-12" width="128" height="120"/>
+        <element name="OrderProduct" positionX="250" positionY="-12" width="128" height="120"/>
+    </elements>
+</model>

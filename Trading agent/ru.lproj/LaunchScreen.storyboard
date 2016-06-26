@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="kiR-Zr-iak">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="lSc-Qk-WqJ">
+            <objects>
+                <tableViewController id="Nt8-Y3-6BM" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DeQ-C8-WGX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pdc-0K-DXl">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pdc-0K-DXl" id="eZg-8B-ppc">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nt8-Y3-6BM" id="d5s-eZ-Ckq"/>
+                            <outlet property="delegate" destination="Nt8-Y3-6BM" id="Txr-3d-0tU"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="" image="Progress" id="dRo-UF-q9W"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="dGw-up-H03"/>
+                        <barButtonItem enabled="NO" image="Progress" id="SIy-pt-lhi">
+                            <inset key="imageInsets" minX="0.0" minY="-12" maxX="0.0" maxY="-4"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="08r-rg-Jrp"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="kDe-Mi-xie">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" image="Import" id="Jdo-wZ-xkH">
+                            <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="4"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" image="Add Client" id="EDz-f0-8YP">
+                            <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="4"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iup-mv-fWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-343" y="334"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9OO-wj-zRu">
+            <objects>
+                <navigationController toolbarHidden="NO" id="kiR-Zr-iak" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VRV-fW-7H2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="XmS-Jc-gZ7">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="Nt8-Y3-6BM" kind="relationship" relationship="rootViewController" id="Dde-0g-bj5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xXl-M3-Ugf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1163" y="334"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Add Client" width="50" height="50"/>
+        <image name="Import" width="50" height="50"/>
+        <image name="Progress" width="50" height="50"/>
+    </resources>
+</document>

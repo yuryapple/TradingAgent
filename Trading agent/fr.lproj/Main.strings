@@ -1,0 +1,99 @@
+
+/* Class = "UIButton"; normalTitle = "Call"; ObjectID = "1Gw-jk-NGd"; */
+"1Gw-jk-NGd.normalTitle" = "Call";
+
+/* Class = "UILabel"; text = "Date compl"; ObjectID = "7ap-DY-xPx"; */
+"7ap-DY-xPx.text" = "Date compl";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "869-62-9NN"; */
+"869-62-9NN.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "88t-Ry-gUc"; */
+"88t-Ry-gUc.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8UT-7S-ryk"; */
+"8UT-7S-ryk.text" = "Label";
+
+/* Class = "UILabel"; text = "Finish Date"; ObjectID = "AhU-mG-35C"; */
+"AhU-mG-35C.text" = "Finish Date";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "Em5-BY-O4y"; */
+"Em5-BY-O4y.title" = "Root View Controller";
+
+/* Class = "UILabel"; text = "Order"; ObjectID = "GMd-MY-Nh1"; */
+"GMd-MY-Nh1.text" = "Order";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HFE-YL-dj4"; */
+"HFE-YL-dj4.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "HIn-Ck-3Li"; */
+"HIn-Ck-3Li.title" = "Root View Controller";
+
+/* Class = "UIButton"; normalTitle = "Call"; ObjectID = "JWg-5T-5Ti"; */
+"JWg-5T-5Ti.normalTitle" = "Call";
+
+/* Class = "UITabBarItem"; title = "Complite"; ObjectID = "Jb7-b8-SQn"; */
+"Jb7-b8-SQn.title" = "Complite";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "K5e-bX-fSc"; */
+"K5e-bX-fSc.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Prosesing"; ObjectID = "M3Y-XS-t6o"; */
+"M3Y-XS-t6o.title" = "Prosesing";
+
+/* Class = "UILabel"; text = "LabelSum"; ObjectID = "P9b-T3-Wz6"; */
+"P9b-T3-Wz6.text" = "LabelSum";
+
+/* Class = "UIButton"; normalTitle = "New order"; ObjectID = "Pew-Yf-D1R"; */
+"Pew-Yf-D1R.normalTitle" = "New order";
+
+/* Class = "UITabBarItem"; title = "Clients"; ObjectID = "Qbz-Aq-wjD"; */
+"Qbz-Aq-wjD.title" = "Clients";
+
+/* Class = "UILabel"; text = "LabelPrice"; ObjectID = "STR-2h-1hR"; */
+"STR-2h-1hR.text" = "LabelPrice";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UH4-Xy-m4i"; */
+"UH4-Xy-m4i.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "YRi-qF-dRY"; */
+"YRi-qF-dRY.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Z6C-O6-wae"; */
+"Z6C-O6-wae.text" = "Label";
+
+/* Class = "UILabel"; text = "LabelName"; ObjectID = "bTp-4n-1a5"; */
+"bTp-4n-1a5.text" = "LabelName";
+
+/* Class = "UILabel"; text = "Date order"; ObjectID = "fsD-A9-9I1"; */
+"fsD-A9-9I1.text" = "Date order";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hlZ-mh-1Jk"; */
+"hlZ-mh-1Jk.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "  "; ObjectID = "hoB-SA-rp7"; */
+"hoB-SA-rp7.title" = "  ";
+
+/* Class = "UIButton"; normalTitle = "Add to order"; ObjectID = "kKT-rM-cjs"; */
+"kKT-rM-cjs.normalTitle" = "Add to order";
+
+/* Class = "UILabel"; text = "Start Date"; ObjectID = "kgT-50-wue"; */
+"kgT-50-wue.text" = "Start Date";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "lOi-ec-EGc"; */
+"lOi-ec-EGc.text" = "Name";
+
+/* Class = "UILabel"; text = "LabelUnits"; ObjectID = "lXz-oD-NuG"; */
+"lXz-oD-NuG.text" = "LabelUnits";
+
+/* Class = "UILabel"; text = "Sum"; ObjectID = "lcU-So-kpp"; */
+"lcU-So-kpp.text" = "Sum";
+
+/* Class = "UILabel"; text = "Number Order"; ObjectID = "pw7-0I-qZ1"; */
+"pw7-0I-qZ1.text" = "Number Order";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "qOg-og-c0H"; */
+"qOg-og-c0H.title" = "Root View Controller";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "tfx-4x-jys"; */
+"tfx-4x-jys.normalTitle" = "Cancel";

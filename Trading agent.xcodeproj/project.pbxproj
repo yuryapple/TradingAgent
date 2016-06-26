@@ -1,0 +1,705 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F1080CAA1CDE5CD000E5178B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1080CA91CDE5CD000E5178B /* Settings.bundle */; settings = {ASSET_TAGS = (); }; };
+		F1080CAD1CE32D7E00E5178B /* MasterAddresBookController+ExportOrSynchronizeAddressBookForOwners.m in Sources */ = {isa = PBXBuildFile; fileRef = F1080CAC1CE32D7E00E5178B /* MasterAddresBookController+ExportOrSynchronizeAddressBookForOwners.m */; settings = {ASSET_TAGS = (); }; };
+		F122AF871CD0B5BB001A7769 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F122AF861CD0B5BB001A7769 /* Pictures.xcassets */; settings = {ASSET_TAGS = (); }; };
+		F1292AB31CB456A200996854 /* DetailCompliteController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1292AB21CB456A200996854 /* DetailCompliteController.m */; settings = {ASSET_TAGS = (); }; };
+		F1292AB61CB51CCB00996854 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1292AB51CB51CCB00996854 /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
+		F1292ABA1CB5469D00996854 /* Inside.m in Sources */ = {isa = PBXBuildFile; fileRef = F1292AB81CB5469D00996854 /* Inside.m */; settings = {ASSET_TAGS = (); }; };
+		F1292ABB1CB5469D00996854 /* Inside.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1292AB91CB5469D00996854 /* Inside.xib */; settings = {ASSET_TAGS = (); }; };
+		F1296D411CBE2C0500A1CE76 /* ExecuteOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1296D401CBE2C0500A1CE76 /* ExecuteOrderController.m */; settings = {ASSET_TAGS = (); }; };
+		F1296D441CBF803100A1CE76 /* ProductItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1296D431CBF803100A1CE76 /* ProductItemController.m */; settings = {ASSET_TAGS = (); }; };
+		F131ADB91CF4E158005F9C50 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F131ADBB1CF4E158005F9C50 /* InfoPlist.strings */; };
+		F17ADB9B1CA9168A00968B7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F17ADB9A1CA9168A00968B7B /* main.m */; };
+		F17ADB9E1CA9168A00968B7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F17ADB9D1CA9168A00968B7B /* AppDelegate.m */; };
+		F188C79E1CF5AA1200C5E599 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F188C7A01CF5AA1200C5E599 /* Localizable.strings */; };
+		F19AD9961CED8FC400942FBD /* SharedSettingsUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = F19AD9951CED8FC300942FBD /* SharedSettingsUserDefault.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE72C1CA91C19003E21C7 /* SharedManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE72B1CA91C19003E21C7 /* SharedManagedObjectContext.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE7311CA91D2C003E21C7 /* MasterAddresBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE72E1CA91D2C003E21C7 /* MasterAddresBookController.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE7321CA91D2C003E21C7 /* DetailAddressBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE7301CA91D2C003E21C7 /* DetailAddressBookController.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE7351CA92B98003E21C7 /* Trading Agent.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F19BE7331CA92B98003E21C7 /* Trading Agent.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		F19BE7381CA983E6003E21C7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7371CA983E6003E21C7 /* SystemConfiguration.framework */; };
+		F19BE73A1CA98404003E21C7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7391CA98404003E21C7 /* StoreKit.framework */; };
+		F19BE73C1CA98422003E21C7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE73B1CA98422003E21C7 /* Security.framework */; };
+		F19BE73E1CA98448003E21C7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE73D1CA98448003E21C7 /* libz.tbd */; };
+		F19BE7401CA9846A003E21C7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE73F1CA9846A003E21C7 /* libsqlite3.tbd */; };
+		F19BE7421CA984D3003E21C7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7411CA984D3003E21C7 /* QuartzCore.framework */; };
+		F19BE7441CA98500003E21C7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7431CA98500003E21C7 /* MobileCoreServices.framework */; };
+		F19BE7461CA9858F003E21C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7451CA9858F003E21C7 /* CoreLocation.framework */; };
+		F19BE7481CA9859F003E21C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7471CA9859F003E21C7 /* CoreGraphics.framework */; };
+		F19BE74A1CA985B3003E21C7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7491CA985B3003E21C7 /* CFNetwork.framework */; };
+		F19BE74C1CA985D0003E21C7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE74B1CA985D0003E21C7 /* AudioToolbox.framework */; };
+		F19BE74E1CA986EE003E21C7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE74D1CA986EE003E21C7 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		F19BE7521CA98724003E21C7 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BE7511CA98724003E21C7 /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
+		F19BE7561CA9A843003E21C7 /* OrderClienController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE7551CA9A843003E21C7 /* OrderClienController.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE77F1CABE0F3003E21C7 /* ConvertProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE77E1CABE0F3003E21C7 /* ConvertProducts.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE7831CAC2D2A003E21C7 /* FoodListController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE7821CAC2D2A003E21C7 /* FoodListController.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE7E41CB0EC40003E21C7 /* CompliteOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE7E31CB0EC40003E21C7 /* CompliteOrderController.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE7E81CB16561003E21C7 /* SliderForFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE7E71CB16561003E21C7 /* SliderForFooter.m */; settings = {ASSET_TAGS = (); }; };
+		F19BE7EA1CB16572003E21C7 /* SliderForFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F19BE7E91CB16572003E21C7 /* SliderForFooter.xib */; settings = {ASSET_TAGS = (); }; };
+		F19BE7EE1CB17125003E21C7 /* MySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BE7ED1CB17125003E21C7 /* MySlider.m */; settings = {ASSET_TAGS = (); }; };
+		F1CA31661D1FE97F007F199A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1CA31651D1FE97F007F199A /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		F1CB4FEF1CF4D93F00C3F9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CB4FED1CF4D93F00C3F9AD /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		F1CB4FF21CF4D94E00C3F9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CB4FF01CF4D94E00C3F9AD /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		F1CB4FF71CF4DD7400C3F9AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1CB4FF91CF4DD7400C3F9AD /* Info.plist */; };
+		F1D47A351D16A4EE00D06036 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = F1D47A371D16A4EE00D06036 /* Localizable.stringsdict */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F1080CA91CDE5CD000E5178B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F1080CAC1CE32D7E00E5178B /* MasterAddresBookController+ExportOrSynchronizeAddressBookForOwners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MasterAddresBookController+ExportOrSynchronizeAddressBookForOwners.m"; sourceTree = "<group>"; };
+		F122AF861CD0B5BB001A7769 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
+		F1292AB11CB456A200996854 /* DetailCompliteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCompliteController.h; sourceTree = "<group>"; };
+		F1292AB21CB456A200996854 /* DetailCompliteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCompliteController.m; sourceTree = "<group>"; };
+		F1292AB41CB51CCB00996854 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F1292AB51CB51CCB00996854 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F1292AB71CB5469D00996854 /* Inside.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Inside.h; sourceTree = "<group>"; };
+		F1292AB81CB5469D00996854 /* Inside.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Inside.m; sourceTree = "<group>"; };
+		F1292AB91CB5469D00996854 /* Inside.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Inside.xib; sourceTree = "<group>"; };
+		F1296D3F1CBE2C0500A1CE76 /* ExecuteOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExecuteOrderController.h; sourceTree = "<group>"; };
+		F1296D401CBE2C0500A1CE76 /* ExecuteOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExecuteOrderController.m; sourceTree = "<group>"; };
+		F1296D421CBF803100A1CE76 /* ProductItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductItemController.h; sourceTree = "<group>"; };
+		F1296D431CBF803100A1CE76 /* ProductItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductItemController.m; sourceTree = "<group>"; };
+		F131ADBA1CF4E158005F9C50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F131ADBC1CF4E160005F9C50 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F17ADB961CA9168900968B7B /* Trading agent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trading agent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F17ADB9A1CA9168A00968B7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F17ADB9C1CA9168A00968B7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F17ADB9D1CA9168A00968B7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F188C79F1CF5AA1200C5E599 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F188C7A11CF5AA1600C5E599 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F19AD9941CED8FC300942FBD /* SharedSettingsUserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedSettingsUserDefault.h; sourceTree = "<group>"; };
+		F19AD9951CED8FC300942FBD /* SharedSettingsUserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedSettingsUserDefault.m; sourceTree = "<group>"; };
+		F19BE72A1CA91C19003E21C7 /* SharedManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedManagedObjectContext.h; sourceTree = "<group>"; };
+		F19BE72B1CA91C19003E21C7 /* SharedManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedManagedObjectContext.m; sourceTree = "<group>"; };
+		F19BE72D1CA91D2C003E21C7 /* MasterAddresBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterAddresBookController.h; sourceTree = "<group>"; };
+		F19BE72E1CA91D2C003E21C7 /* MasterAddresBookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterAddresBookController.m; sourceTree = "<group>"; };
+		F19BE72F1CA91D2C003E21C7 /* DetailAddressBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailAddressBookController.h; sourceTree = "<group>"; };
+		F19BE7301CA91D2C003E21C7 /* DetailAddressBookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailAddressBookController.m; sourceTree = "<group>"; };
+		F19BE7341CA92B98003E21C7 /* Trading Agent.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Trading Agent.xcdatamodel"; sourceTree = "<group>"; };
+		F19BE7371CA983E6003E21C7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F19BE7391CA98404003E21C7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F19BE73B1CA98422003E21C7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F19BE73D1CA98448003E21C7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F19BE73F1CA9846A003E21C7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F19BE7411CA984D3003E21C7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F19BE7431CA98500003E21C7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F19BE7451CA9858F003E21C7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F19BE7471CA9859F003E21C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F19BE7491CA985B3003E21C7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F19BE74B1CA985D0003E21C7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F19BE74D1CA986EE003E21C7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		F19BE7511CA98724003E21C7 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		F19BE7531CA9A306003E21C7 /* Trading Agent 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Trading Agent 2.xcdatamodel"; sourceTree = "<group>"; };
+		F19BE7541CA9A843003E21C7 /* OrderClienController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderClienController.h; sourceTree = "<group>"; };
+		F19BE7551CA9A843003E21C7 /* OrderClienController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderClienController.m; sourceTree = "<group>"; };
+		F19BE77D1CABE0F3003E21C7 /* ConvertProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertProducts.h; sourceTree = "<group>"; };
+		F19BE77E1CABE0F3003E21C7 /* ConvertProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertProducts.m; sourceTree = "<group>"; };
+		F19BE7801CABE708003E21C7 /* ConvertProductsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertProductsDelegate.h; sourceTree = "<group>"; };
+		F19BE7811CAC2D2A003E21C7 /* FoodListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodListController.h; sourceTree = "<group>"; };
+		F19BE7821CAC2D2A003E21C7 /* FoodListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodListController.m; sourceTree = "<group>"; };
+		F19BE7841CADACCB003E21C7 /* Trading Agent 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Trading Agent 3.xcdatamodel"; sourceTree = "<group>"; };
+		F19BE7E21CB0EC24003E21C7 /* CompliteOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompliteOrderController.h; sourceTree = "<group>"; };
+		F19BE7E31CB0EC40003E21C7 /* CompliteOrderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompliteOrderController.m; sourceTree = "<group>"; };
+		F19BE7E61CB16561003E21C7 /* SliderForFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderForFooter.h; sourceTree = "<group>"; };
+		F19BE7E71CB16561003E21C7 /* SliderForFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderForFooter.m; sourceTree = "<group>"; };
+		F19BE7E91CB16572003E21C7 /* SliderForFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderForFooter.xib; sourceTree = "<group>"; };
+		F19BE7EC1CB17125003E21C7 /* MySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySlider.h; sourceTree = "<group>"; };
+		F19BE7ED1CB17125003E21C7 /* MySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySlider.m; sourceTree = "<group>"; };
+		F1CA31651D1FE97F007F199A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		F1CB4FEE1CF4D93F00C3F9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F1CB4FF11CF4D94E00C3F9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F1CB4FF51CF4DAB700C3F9AD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F1CB4FF61CF4DAB700C3F9AD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		F1CB4FF81CF4DD7400C3F9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		F1D47A361D16A4EE00D06036 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Base; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		F1D47A381D16A4F300D06036 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F17ADB931CA9168900968B7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19BE74C1CA985D0003E21C7 /* AudioToolbox.framework in Frameworks */,
+				F19BE74A1CA985B3003E21C7 /* CFNetwork.framework in Frameworks */,
+				F19BE7521CA98724003E21C7 /* ParseUI.framework in Frameworks */,
+				F19BE7481CA9859F003E21C7 /* CoreGraphics.framework in Frameworks */,
+				F19BE74E1CA986EE003E21C7 /* Bolts.framework in Frameworks */,
+				F19BE7461CA9858F003E21C7 /* CoreLocation.framework in Frameworks */,
+				F19BE7441CA98500003E21C7 /* MobileCoreServices.framework in Frameworks */,
+				F19BE7421CA984D3003E21C7 /* QuartzCore.framework in Frameworks */,
+				F19BE7401CA9846A003E21C7 /* libsqlite3.tbd in Frameworks */,
+				F19BE73E1CA98448003E21C7 /* libz.tbd in Frameworks */,
+				F1CA31661D1FE97F007F199A /* Parse.framework in Frameworks */,
+				F19BE73C1CA98422003E21C7 /* Security.framework in Frameworks */,
+				F19BE73A1CA98404003E21C7 /* StoreKit.framework in Frameworks */,
+				F19BE7381CA983E6003E21C7 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F17ADB8D1CA9168800968B7B = {
+			isa = PBXGroup;
+			children = (
+				F17ADB981CA9168A00968B7B /* Trading agent */,
+				F17ADB971CA9168900968B7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F17ADB971CA9168900968B7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F17ADB961CA9168900968B7B /* Trading agent.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F17ADB981CA9168A00968B7B /* Trading agent */ = {
+			isa = PBXGroup;
+			children = (
+				F17ADB9C1CA9168A00968B7B /* AppDelegate.h */,
+				F17ADB9D1CA9168A00968B7B /* AppDelegate.m */,
+				F19BE72A1CA91C19003E21C7 /* SharedManagedObjectContext.h */,
+				F19BE72B1CA91C19003E21C7 /* SharedManagedObjectContext.m */,
+				F19AD9941CED8FC300942FBD /* SharedSettingsUserDefault.h */,
+				F19AD9951CED8FC300942FBD /* SharedSettingsUserDefault.m */,
+				F19BE7801CABE708003E21C7 /* ConvertProductsDelegate.h */,
+				F19BE77D1CABE0F3003E21C7 /* ConvertProducts.h */,
+				F19BE77E1CABE0F3003E21C7 /* ConvertProducts.m */,
+				F19BE7E51CB1646F003E21C7 /* SliderForFooter */,
+				F19BE7251CA919EE003E21C7 /* ClientsTab */,
+				F19BE7271CA91AFA003E21C7 /* ExecuteOrdersTab */,
+				F19BE7281CA91B15003E21C7 /* CompleteOrdersTab */,
+				F19BE7291CA91B2E003E21C7 /* ForAllTabs */,
+				F19BE7331CA92B98003E21C7 /* Trading Agent.xcdatamodeld */,
+				F1CB4FED1CF4D93F00C3F9AD /* LaunchScreen.storyboard */,
+				F1CB4FF01CF4D94E00C3F9AD /* Main.storyboard */,
+				F131ADBB1CF4E158005F9C50 /* InfoPlist.strings */,
+				F122AF861CD0B5BB001A7769 /* Pictures.xcassets */,
+				F1CB4FF91CF4DD7400C3F9AD /* Info.plist */,
+				F1080CA91CDE5CD000E5178B /* Settings.bundle */,
+				F19BE7361CA98306003E21C7 /* Frameworks */,
+				F17ADB991CA9168A00968B7B /* Supporting Files */,
+			);
+			path = "Trading agent";
+			sourceTree = "<group>";
+		};
+		F17ADB991CA9168A00968B7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F188C7A01CF5AA1200C5E599 /* Localizable.strings */,
+				F1D47A371D16A4EE00D06036 /* Localizable.stringsdict */,
+				F17ADB9A1CA9168A00968B7B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F19BE7251CA919EE003E21C7 /* ClientsTab */ = {
+			isa = PBXGroup;
+			children = (
+				F19BE72D1CA91D2C003E21C7 /* MasterAddresBookController.h */,
+				F19BE72E1CA91D2C003E21C7 /* MasterAddresBookController.m */,
+				F1080CAC1CE32D7E00E5178B /* MasterAddresBookController+ExportOrSynchronizeAddressBookForOwners.m */,
+				F19BE72F1CA91D2C003E21C7 /* DetailAddressBookController.h */,
+				F19BE7301CA91D2C003E21C7 /* DetailAddressBookController.m */,
+			);
+			name = ClientsTab;
+			sourceTree = "<group>";
+		};
+		F19BE7271CA91AFA003E21C7 /* ExecuteOrdersTab */ = {
+			isa = PBXGroup;
+			children = (
+				F1296D3F1CBE2C0500A1CE76 /* ExecuteOrderController.h */,
+				F1296D401CBE2C0500A1CE76 /* ExecuteOrderController.m */,
+			);
+			name = ExecuteOrdersTab;
+			sourceTree = "<group>";
+		};
+		F19BE7281CA91B15003E21C7 /* CompleteOrdersTab */ = {
+			isa = PBXGroup;
+			children = (
+				F19BE7E21CB0EC24003E21C7 /* CompliteOrderController.h */,
+				F19BE7E31CB0EC40003E21C7 /* CompliteOrderController.m */,
+				F1292AB11CB456A200996854 /* DetailCompliteController.h */,
+				F1292AB21CB456A200996854 /* DetailCompliteController.m */,
+				F1292AB71CB5469D00996854 /* Inside.h */,
+				F1292AB81CB5469D00996854 /* Inside.m */,
+				F1292AB91CB5469D00996854 /* Inside.xib */,
+				F1292AB41CB51CCB00996854 /* ViewController.h */,
+				F1292AB51CB51CCB00996854 /* ViewController.m */,
+			);
+			name = CompleteOrdersTab;
+			sourceTree = "<group>";
+		};
+		F19BE7291CA91B2E003E21C7 /* ForAllTabs */ = {
+			isa = PBXGroup;
+			children = (
+				F19BE7811CAC2D2A003E21C7 /* FoodListController.h */,
+				F19BE7821CAC2D2A003E21C7 /* FoodListController.m */,
+				F19BE7541CA9A843003E21C7 /* OrderClienController.h */,
+				F19BE7551CA9A843003E21C7 /* OrderClienController.m */,
+				F1296D421CBF803100A1CE76 /* ProductItemController.h */,
+				F1296D431CBF803100A1CE76 /* ProductItemController.m */,
+			);
+			name = ForAllTabs;
+			sourceTree = "<group>";
+		};
+		F19BE7361CA98306003E21C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1CA31651D1FE97F007F199A /* Parse.framework */,
+				F19BE74D1CA986EE003E21C7 /* Bolts.framework */,
+				F19BE7511CA98724003E21C7 /* ParseUI.framework */,
+				F19BE74B1CA985D0003E21C7 /* AudioToolbox.framework */,
+				F19BE7491CA985B3003E21C7 /* CFNetwork.framework */,
+				F19BE7471CA9859F003E21C7 /* CoreGraphics.framework */,
+				F19BE7451CA9858F003E21C7 /* CoreLocation.framework */,
+				F19BE7431CA98500003E21C7 /* MobileCoreServices.framework */,
+				F19BE7411CA984D3003E21C7 /* QuartzCore.framework */,
+				F19BE73F1CA9846A003E21C7 /* libsqlite3.tbd */,
+				F19BE73D1CA98448003E21C7 /* libz.tbd */,
+				F19BE73B1CA98422003E21C7 /* Security.framework */,
+				F19BE7391CA98404003E21C7 /* StoreKit.framework */,
+				F19BE7371CA983E6003E21C7 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F19BE7E51CB1646F003E21C7 /* SliderForFooter */ = {
+			isa = PBXGroup;
+			children = (
+				F19BE7E61CB16561003E21C7 /* SliderForFooter.h */,
+				F19BE7E71CB16561003E21C7 /* SliderForFooter.m */,
+				F19BE7E91CB16572003E21C7 /* SliderForFooter.xib */,
+				F19BE7EB1CB170E0003E21C7 /* Slider */,
+			);
+			name = SliderForFooter;
+			sourceTree = "<group>";
+		};
+		F19BE7EB1CB170E0003E21C7 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				F19BE7EC1CB17125003E21C7 /* MySlider.h */,
+				F19BE7ED1CB17125003E21C7 /* MySlider.m */,
+			);
+			name = Slider;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F17ADB951CA9168900968B7B /* Trading agent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F17ADBAD1CA9168B00968B7B /* Build configuration list for PBXNativeTarget "Trading agent" */;
+			buildPhases = (
+				F17ADB921CA9168900968B7B /* Sources */,
+				F17ADB931CA9168900968B7B /* Frameworks */,
+				F17ADB941CA9168900968B7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trading agent";
+			productName = "Trading agent";
+			productReference = F17ADB961CA9168900968B7B /* Trading agent.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F17ADB8E1CA9168800968B7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = MyCompany;
+				TargetAttributes = {
+					F17ADB951CA9168900968B7B = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = JP54Y47UJ6;
+					};
+				};
+			};
+			buildConfigurationList = F17ADB911CA9168800968B7B /* Build configuration list for PBXProject "Trading agent" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = F17ADB8D1CA9168800968B7B;
+			productRefGroup = F17ADB971CA9168900968B7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F17ADB951CA9168900968B7B /* Trading agent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F17ADB941CA9168900968B7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1292ABB1CB5469D00996854 /* Inside.xib in Resources */,
+				F131ADB91CF4E158005F9C50 /* InfoPlist.strings in Resources */,
+				F19BE7EA1CB16572003E21C7 /* SliderForFooter.xib in Resources */,
+				F122AF871CD0B5BB001A7769 /* Pictures.xcassets in Resources */,
+				F188C79E1CF5AA1200C5E599 /* Localizable.strings in Resources */,
+				F1CB4FF21CF4D94E00C3F9AD /* Main.storyboard in Resources */,
+				F1CB4FF71CF4DD7400C3F9AD /* Info.plist in Resources */,
+				F1080CAA1CDE5CD000E5178B /* Settings.bundle in Resources */,
+				F1CB4FEF1CF4D93F00C3F9AD /* LaunchScreen.storyboard in Resources */,
+				F1D47A351D16A4EE00D06036 /* Localizable.stringsdict in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F17ADB921CA9168900968B7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1292AB61CB51CCB00996854 /* ViewController.m in Sources */,
+				F1080CAD1CE32D7E00E5178B /* MasterAddresBookController+ExportOrSynchronizeAddressBookForOwners.m in Sources */,
+				F19BE7E81CB16561003E21C7 /* SliderForFooter.m in Sources */,
+				F19BE7831CAC2D2A003E21C7 /* FoodListController.m in Sources */,
+				F1296D441CBF803100A1CE76 /* ProductItemController.m in Sources */,
+				F19BE7EE1CB17125003E21C7 /* MySlider.m in Sources */,
+				F1292ABA1CB5469D00996854 /* Inside.m in Sources */,
+				F19BE7351CA92B98003E21C7 /* Trading Agent.xcdatamodeld in Sources */,
+				F1296D411CBE2C0500A1CE76 /* ExecuteOrderController.m in Sources */,
+				F19BE77F1CABE0F3003E21C7 /* ConvertProducts.m in Sources */,
+				F17ADB9E1CA9168A00968B7B /* AppDelegate.m in Sources */,
+				F1292AB31CB456A200996854 /* DetailCompliteController.m in Sources */,
+				F19BE7311CA91D2C003E21C7 /* MasterAddresBookController.m in Sources */,
+				F19BE72C1CA91C19003E21C7 /* SharedManagedObjectContext.m in Sources */,
+				F19AD9961CED8FC400942FBD /* SharedSettingsUserDefault.m in Sources */,
+				F19BE7321CA91D2C003E21C7 /* DetailAddressBookController.m in Sources */,
+				F19BE7E41CB0EC40003E21C7 /* CompliteOrderController.m in Sources */,
+				F17ADB9B1CA9168A00968B7B /* main.m in Sources */,
+				F19BE7561CA9A843003E21C7 /* OrderClienController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F131ADBB1CF4E158005F9C50 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F131ADBA1CF4E158005F9C50 /* Base */,
+				F131ADBC1CF4E160005F9C50 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F188C7A01CF5AA1200C5E599 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F188C79F1CF5AA1200C5E599 /* Base */,
+				F188C7A11CF5AA1600C5E599 /* ru */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F1CB4FED1CF4D93F00C3F9AD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1CB4FEE1CF4D93F00C3F9AD /* Base */,
+				F1CB4FF51CF4DAB700C3F9AD /* ru */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F1CB4FF01CF4D94E00C3F9AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1CB4FF11CF4D94E00C3F9AD /* Base */,
+				F1CB4FF61CF4DAB700C3F9AD /* ru */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F1CB4FF91CF4DD7400C3F9AD /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1CB4FF81CF4DD7400C3F9AD /* Base */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		F1D47A371D16A4EE00D06036 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1D47A361D16A4EE00D06036 /* Base */,
+				F1D47A381D16A4F300D06036 /* ru */,
+			);
+			name = Localizable.stringsdict;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F17ADBAB1CA9168B00968B7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F17ADBAC1CA9168B00968B7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F17ADBAE1CA9168B00968B7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+				);
+				INFOPLIST_FILE = "Trading agent/Base.lproj/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "book.coredate.Trading-agent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F17ADBAF1CA9168B00968B7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+					"$(PROJECT_DIR)/Trading",
+					agent,
+				);
+				INFOPLIST_FILE = "Trading agent/Base.lproj/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "book.coredate.Trading-agent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F17ADB911CA9168800968B7B /* Build configuration list for PBXProject "Trading agent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F17ADBAB1CA9168B00968B7B /* Debug */,
+				F17ADBAC1CA9168B00968B7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F17ADBAD1CA9168B00968B7B /* Build configuration list for PBXNativeTarget "Trading agent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F17ADBAE1CA9168B00968B7B /* Debug */,
+				F17ADBAF1CA9168B00968B7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F19BE7331CA92B98003E21C7 /* Trading Agent.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F19BE7841CADACCB003E21C7 /* Trading Agent 3.xcdatamodel */,
+				F19BE7531CA9A306003E21C7 /* Trading Agent 2.xcdatamodel */,
+				F19BE7341CA92B98003E21C7 /* Trading Agent.xcdatamodel */,
+			);
+			currentVersion = F19BE7841CADACCB003E21C7 /* Trading Agent 3.xcdatamodel */;
+			path = "Trading Agent.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F17ADB8E1CA9168800968B7B /* Project object */;
+}
