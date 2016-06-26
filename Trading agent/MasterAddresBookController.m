@@ -87,7 +87,7 @@
     NSArray *result = [[self managedObjectContext] executeFetchRequest:request error:nil];
     
   
-    /* delete all old
+    /* delete all olds
     int i =0;
     for (id basket in result){
         [_managedObjectContext deleteObject:basket];
