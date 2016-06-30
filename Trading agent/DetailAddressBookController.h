@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "SharedManagedObjectContext.h"
+#import "SharedSettingsUserDefault.h"
 
 @interface DetailAddressBookController : UIViewController
 
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+/*! @brief Object for access to the settings from "Settings.bundle". */
+@property (strong, nonatomic) SharedSettingsUserDefault *settingsUserDefault;
+
 @property (nonatomic , strong)  NSDictionary *dictContactDetails;
 @property (weak, nonatomic) IBOutlet UITextField *fieldFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *fieldLastName;

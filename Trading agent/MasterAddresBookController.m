@@ -60,9 +60,12 @@
     [self.tabBarController.tabBar.items objectAtIndex:1].enabled = NO;
     [self.tabBarController.tabBar.items objectAtIndex:2].enabled = NO;
     
-      self.didChangeNotification = NO;
+    
+    self.didChangeNotification = NO;
     
     
+    // Have current trading agent an unfinished order?
+    [self finalizeWorkWithUnfinishedOrderIfNeed]; 
     
 /*
 
@@ -83,8 +86,8 @@
 */
 
     
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
-    NSArray *result = [[self managedObjectContext] executeFetchRequest:request error:nil];
+   // NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
+   // NSArray *result = [[self managedObjectContext] executeFetchRequest:request error:nil];
     
   
     /* delete all olds
@@ -99,10 +102,70 @@
     */
     
     
-   if (result.count) {
-        NSManagedObject *currentOrder   = [result objectAtIndex:0];
-       [self performSegueWithIdentifier:@"compliteInterraptOrder" sender:[currentOrder valueForKey:@"numberOrder"]];
+  // if (result.count) {
+  //      NSManagedObject *currentOrder   = [result objectAtIndex:0];
+  //     [self performSegueWithIdentifier:@"compliteInterraptOrder" sender:[currentOrder valueForKey:@"numberOrder"]];
+  //  }
+}
+
+
+/*!
+ @brief If you have an order in Core Data (fetchRequestWithEntityName:@"Order") then your work was interrupted, so you must finish this work   and save it on the Parse server.
+ 
+ @param none
+ 
+ @return none
+ */
+
+-(void) finalizeWorkWithUnfinishedOrderIfNeed {
+    
+    NSArray *unfinishedOrders = [self getUnfinishedOrdersFromCoreData];
+    
+    if (unfinishedOrders.count) {
+        // Table Order has record/(s)
+        
+        NSInteger numberOfUnfinishedOrder;
+        
+        numberOfUnfinishedOrder = [self getNumberOfUnfinishedOrderForCurrentTradingAgent:unfinishedOrders];
+
+        if (numberOfUnfinishedOrder) {
+            //Break normal workflow of application and finalize to create this order which must be saved
+            [self performSegueWithIdentifier:@"compliteInterraptOrder" sender:@(numberOfUnfinishedOrder)];
+        }
     }
+}
+
+
+-(NSArray *) getUnfinishedOrdersFromCoreData {
+    //Temporary order is located in Core Data, table called "Order". This kind of order called unfinished.
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
+    NSArray *result = [[self managedObjectContext] executeFetchRequest:request error:nil];
+    return result;
+}
+
+
+-(NSInteger)getNumberOfUnfinishedOrderForCurrentTradingAgent:(NSArray *) unfinishedOrders {
+    
+    NSInteger numberOfOrder = 0;
+    NSInteger firstDigitalOfNumberOrder = 0;
+    
+    
+    NSInteger  currentNumberOfTradingAgent = [_settingsUserDefault getDefaultOwnerNumber];
+    for (id order in unfinishedOrders) {
+        
+        firstDigitalOfNumberOrder = [[order valueForKey:@"numberOrder"] integerValue] / 100000;
+        // Example 318101 - number of order      divide   1  plus (000 - day of year) plus (00 - numder of order )
+        // so firstDigitalOfNumberOrder = 3
+        
+        if (currentNumberOfTradingAgent == firstDigitalOfNumberOrder ) {
+            // Current trading agent has unfinished order.
+            
+            numberOfOrder = [[order valueForKey:@"numberOrder"] integerValue];
+            return numberOfOrder;
+        }
+    }
+    // Current trading agent hasn't unfinished order. numberOfOrder is  0
+    return numberOfOrder;
 }
 
 
@@ -117,6 +180,9 @@
     self.didChangeNotification = YES;
     [self.tableView reloadData];
     [self updateNavigationButtons];
+    
+    // Have current trading agent an unfinished order?
+    [self finalizeWorkWithUnfinishedOrderIfNeed];
 }
 
 

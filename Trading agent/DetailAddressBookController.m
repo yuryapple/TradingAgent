@@ -25,6 +25,7 @@
     if(self = [super initWithCoder:aDecoder])
     {
         _managedObjectContext =[[SharedManagedObjectContext sharedManager] managedObjectContext] ;
+        _settingsUserDefault =[SharedSettingsUserDefault sharedSettingsUserDefault] ;
     }
     return self;
 }
@@ -134,8 +135,8 @@
     
     
     //range of order number avaliable in this day
-    NSString  *numberOrderStart = [NSString stringWithFormat:@"3%03ld01",(long)dc];
-    NSString  *numberOrderEnd = [NSString stringWithFormat:@"3%03ld99",(long)dc];
+    NSString  *numberOrderStart = [NSString stringWithFormat:@"%ld%03ld01", (long)[_settingsUserDefault getDefaultOwnerNumber], (long)dc];
+    NSString  *numberOrderEnd   = [NSString stringWithFormat:@"%ld%03ld99", (long)[_settingsUserDefault getDefaultOwnerNumber], (long)dc];
     
     
     

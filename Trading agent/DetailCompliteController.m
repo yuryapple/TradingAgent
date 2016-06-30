@@ -191,11 +191,16 @@
     
 
     
-    UILabel *nameLabel = (UILabel*) [cell viewWithTag:101];
-    nameLabel.text = [[object objectForKey:@"price"]stringValue];
+    UILabel *priceLabel = (UILabel*) [cell viewWithTag:101];
+    priceLabel.text = [[object objectForKey:@"price"]stringValue];
    
-    UILabel *prepTimeLabel = (UILabel*) [cell viewWithTag:102];
-    prepTimeLabel.text = [[object objectForKey:@"units"]stringValue];
+    UILabel *unitsLabel = (UILabel*) [cell viewWithTag:102];
+    unitsLabel.text = [[object objectForKey:@"units"]stringValue];
+    
+    UILabel *sumLabel = (UILabel*) [cell viewWithTag:103];
+    sumLabel.text =  [NSString stringWithFormat:@"%.02f", [[object objectForKey:@"price"] floatValue ] * [[object objectForKey:@"units"] floatValue]];
+    
+    
     
     return cell;
 }

@@ -87,6 +87,12 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self loadObjects];
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -112,7 +118,7 @@
 
 - (PFQuery *)queryForTable
 {
-    
+    // 365 - days in year
     NSPredicate *predicate = [NSPredicate predicateWithFormat:   @"numberOrder > %d AND numberOrder < %d",
                               [[NSString stringWithFormat:@"%ld00000",(long)[_settingsUserDefault getDefaultOwnerNumber]] integerValue],
                               [[NSString stringWithFormat:@"%ld36700",(long)[_settingsUserDefault getDefaultOwnerNumber]] integerValue]
