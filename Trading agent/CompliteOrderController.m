@@ -69,8 +69,6 @@
     [self.sections setObject:objectsInSection forKey:clientName];
     
     
-    NSLog(@" view   Did    Load  ");
-    
     _sArray = [NSMutableArray array];
     
     _sl = [[SliderForFooter alloc]init];
@@ -125,13 +123,6 @@
                               ];
     
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName  predicate:predicate];
-    
-    
-    // If no objects are loaded in memory, we look to the cache first to fill the table
-    // and then subsequently do a query against the network.
-      // if ([self.objects count] == 0) {
-      //   query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-      // }
  
     NSDate *currentDate = [NSDate date];
     NSDate *dateAgo = [currentDate dateByAddingTimeInterval:(- 90 * 24 * 60 * 60)];
@@ -173,7 +164,6 @@
             objectsOrderInSection = [NSMutableArray array];
             
             [self.sectionOrder setObject:clientID forKey:[NSNumber numberWithInt:section++]];
-            // [self.sectionOrderNumber setObject:numberOrder forKey:[NSNumber numberWithInt:section]];
         }
         
         [objectsInSection addObject:[NSNumber numberWithInt:rowIndex++]];
@@ -181,13 +171,7 @@
         
         [self.sections setObject:objectsInSection forKey:clientID];
         [self.sections1 setObject:objectsOrderInSection forKey:clientID];
-        
-        
-        
-        
     }
-    
-    
     
     for (int i = 0; i < self.sectionOrder.allKeys.count; i++) {
         _sl = [[SliderForFooter alloc]init];
@@ -195,16 +179,8 @@
         _sl.days = 1;
         _sl.section = i;
         
-        NSLog(@"--------  %d  ", i);
-        
-        
         [_sArray insertObject:_sl atIndex:i];
     }
-    
-    NSLog(@"ARRAY  %@  ", _sArray);
-    NSLog(@"A  %d  ", _sArray.count);
-    
-    
     
     [self.tableView reloadData];
     
@@ -213,23 +189,11 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
 #pragma mark - Table view data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodCell"];
-    
-     
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FoodCell"];
@@ -254,10 +218,6 @@
     return cell;
 }
 
-
-
-
-
 - (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
     NSString *categoryFoodName = [self headerForCategory1:indexPath.section];
     NSArray *rowIndecesInSection = [self.sections objectForKey:categoryFoodName];
@@ -266,63 +226,30 @@
     if ([self.objects count]){
         return [self.objects objectAtIndex:[rowIndex intValue]];
     }
-    return self.sectionOrder ;
+    return (PFObject *) self.sectionOrder ;
 }
 
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@" ========= %d", self.sectionOrder.allKeys.count);
-    
      return self.sectionOrder.allKeys.count;
 }
-
-
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   
     NSString *categoryFoodName = [self headerForCategory1:section];
-  //  NSArray *rowIndecesInSection = [self.sections objectForKey:categoryFoodName];
     NSArray *rowIndecesInSection = [self.sections1 objectForKey:categoryFoodName];
-    
-    NSLog(@"rowIndecesInSection %@ ", rowIndecesInSection);
 
-    
-    
-     NSLog(@" s Array Complite     %@",_sArray);
-    
-    
-    
     SliderForFooter * slider = [_sArray objectAtIndex:section];
     
-    NSLog(@"Section for slider      %d",[ slider section]);
-    
-
-    
-   // int days =slider.label.text.intValue;
-    
     int days = [slider days];
-    
-  //  NSLog(@"Day      %d",days);
-    
-
+ 
     NSDate *currentDate = [NSDate date];
     NSDate *dateAgo = [currentDate dateByAddingTimeInterval:(- days * 24 * 60 * 60)];
-    
-    
-    
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF >= %@", dateAgo];
-    
-   // NSLog(@"filter      %@",[rowIndecesInSection filteredArrayUsingPredicate:predicate]);
 
-    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF >= %@", dateAgo];
+
     return [[rowIndecesInSection filteredArrayUsingPredicate:predicate] count];
-   
-   // return rowIndecesInSection.count;
-    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -333,15 +260,12 @@
 
 
 - (NSString *)headerForCategory1:(NSInteger)section {
-    NSLog(@" headerForCategory1  %@ ", [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]]);
-    
     return [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]];
 }
 
 
 
 - (NSString *)headerForCategory:(NSInteger)section {
-    //return [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]];
     NSString *fullName;
     NSString *clientID = [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]];
     
@@ -361,18 +285,11 @@
 
 
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    
     return [[_sArray objectAtIndex:section] view];
-    
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-
-    
-  //  NSLog(@"A R R A Y %@  ", _sArray);
-  //  NSLog(@"A R R A Y COUN %lu  ", (unsigned long)_sArray.count);
-    
     return   [[[_sArray objectAtIndex:section] view] bounds].size.height ;
 }
 

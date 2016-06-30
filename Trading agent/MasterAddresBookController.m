@@ -65,47 +65,7 @@
     
     
     // Have current trading agent an unfinished order?
-    [self finalizeWorkWithUnfinishedOrderIfNeed]; 
-    
-/*
-
-    NSFetchRequest *request1 = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
-    NSArray *result1 = [[self managedObjectContext] executeFetchRequest:request1 error:nil];
-
-    for (id basket in result1){
-        
-      //  NSDate *currentDate = [NSDate date];
-       // NSDate *dateAgo = [currentDate dateByAddingTimeInterval:(- 100 * 24 * 60 * 60)];
-        
-     
-        //[basket setValue:[basket valueForKey:@"updateAt"] forKey:@"createAt"];
-        [_managedObjectContext deleteObject:basket];
-     
-        [[SharedManagedObjectContext sharedManager] saveContext];
-    }
-*/
-
-    
-   // NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
-   // NSArray *result = [[self managedObjectContext] executeFetchRequest:request error:nil];
-    
-  
-    /* delete all olds
-    int i =0;
-    for (id basket in result){
-        [_managedObjectContext deleteObject:basket];
-        NSLog(@"Delete from order %d" , i++);
-    }
-    
-    [[SharedManagedObjectContext sharedManager] saveContext];
-    
-    */
-    
-    
-  // if (result.count) {
-  //      NSManagedObject *currentOrder   = [result objectAtIndex:0];
-  //     [self performSegueWithIdentifier:@"compliteInterraptOrder" sender:[currentOrder valueForKey:@"numberOrder"]];
-  //  }
+    [self finalizeWorkWithUnfinishedOrderIfNeed];
 }
 
 
@@ -214,32 +174,7 @@
          [clientParse saveInBackground];
          
     }
-         
-         
-      //   clientParse[@"numberOrder"] = @([orderNumber integerValue]);
-      //   clientParse[@"clientID"] = clientID;
-      //   clientParse[@"dateOrder"] = [NSDate date];
- 
-         
-         
-         
-//     [_managedObjectContext deleteObject:basket];
-//     NSLog(@"Delete from order %d" , i++);
-         
-         
-   
-     
-    // [[SharedManagedObjectContext sharedManager] saveContext];
-    
-
-        
-    
-        
-
 }
-
-
-
 
 
 
@@ -272,9 +207,7 @@
         }
     } else if (self.actionSynsOrExportForButton == exportDoIt) {
         for (PFObject *recordFromParse in self.diffRecordsFromParse) {
-          //  NSLog(@"exportOrSynsButton %@", [self convertPFObjectToNSMutableDictionary: recordFromParse]);
             NSMutableDictionary *contactInfoDict =[self convertPFObjectToNSMutableDictionary: recordFromParse];
-            NSLog(@"                 %@", contactInfoDict);
             NSIndexPath *indexExistClient  = [self addOrEditClient: contactInfoDict];
             if (indexExistClient) {
                 [self editExistClientInParse:contactInfoDict withIndex:indexExistClient];
@@ -324,12 +257,7 @@
 
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    
-    NSLog(@"indexPath  %@", indexPath);
-    
-    
-    
-    
+  
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     NSString *fullName =[NSString stringWithFormat:@"%@ %@", [[object valueForKey:@"firstName"] description] , [[object valueForKey:@"lastName"] description]];
@@ -356,18 +284,8 @@
     }
     
     if ([[segue identifier] isEqualToString:@"compliteInterraptOrder"]) {
-        
-        
         OrderClienController *controller = (OrderClienController *)[[segue destinationViewController] topViewController];
-        
-        NSLog(@" setNumberOrder %@  ", sender);
-        
         [controller setNumberOrder :[NSString stringWithFormat:@"%@", sender]];
-        
-        
-     
-        
-   
     }
 }
 
@@ -390,11 +308,6 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:self.managedObjectContext];
-    
-    
-    NSLog(@"owner == %ld",
-          (long)[_settingsUserDefault getDefaultOwnerNumber]);
-    
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:   @"owner == %d",
                               [[NSString stringWithFormat:@"%ld",(long)[_settingsUserDefault getDefaultOwnerNumber]] integerValue]
@@ -456,6 +369,11 @@
         case NSFetchedResultsChangeUpdate:
             [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
+            
+        case NSFetchedResultsChangeMove:
+            //Do not move
+            break;
+            
 
     }
 }
@@ -641,47 +559,6 @@
     return [client valueForKey:@"clientID"];
 }
 
-
-
-/*
-- (void)insertNewClientAddress:(NSMutableDictionary *)contactInfoDict
-{
-    NSIndexPath *indexExistClient = [self AddOrEditClient:contactInfoDict];
-    
-    if (indexExistClient){
-        NSManagedObject *client = [_fetchedResultsController objectAtIndexPath:indexExistClient];
-        [client setValue:[contactInfoDict objectForKey:@"lastName"] forKey:@"lastName"];
-        [client setValue:[contactInfoDict objectForKey:@"mobileNumber"] forKey:@"mobileNumber"];
-        [[SharedManagedObjectContext sharedManager] saveContext];
-    } else {
-        // Create a new instance of the entity managed by the fetched results controller.
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-
-        [newManagedObject setValue:[contactInfoDict objectForKey:@"firstName"] forKey:@"firstName"];
-        [newManagedObject setValue:[contactInfoDict objectForKey:@"lastName"] forKey:@"lastName"];
-        [newManagedObject setValue:[contactInfoDict objectForKey:@"mobileNumber"] forKey:@"mobileNumber"];
-        [newManagedObject setValue:[contactInfoDict objectForKey:@"homeNumber"] forKey:@"homeNumber"];
-    
-        // Generate UUID
-        CFUUIDRef theUUID = CFUUIDCreate(NULL);
-        CFStringRef string = CFUUIDCreateString(NULL, theUUID);
-        CFRelease(theUUID);
-        NSString *uuid = (__bridge NSString *)string;
-        [newManagedObject setValue:uuid forKey:@"clientID"];
-    
-
-        // Save the context.
-        NSError *error = nil;
-        if (![context save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-        }
-    }
-}
-
-*/
 
 -(NSIndexPath *)addOrEditClient: (NSMutableDictionary *)contactInfoDict {
     NSIndexPath *path = nil;

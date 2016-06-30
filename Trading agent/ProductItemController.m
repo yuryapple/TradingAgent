@@ -43,28 +43,20 @@
     
     
     UIButton *addOrSaveButton = (UIButton *)[self.view viewWithTag:200];
+    
     if ([_sourceViewControllerName isEqualToString:@"newSelectProduct"]){
         [addOrSaveButton setTitle:NSLocalizedString(@"Add new product to order", nil) forState:normal ];
     }else{
         [addOrSaveButton setTitle:NSLocalizedString(@"Save", nil) forState:normal ];
     }
     
-    
-    
-    
     _productId = [_selectProduct valueForKey:@"objectIDProductParse"];
     
- 
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", _productId];
-    
-    
-      NSLog(@"productId    %@", _productId);
     
     PFQuery *query = [PFQuery queryWithClassName:@"FoodProduct" predicate:predicate];
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
-        
-        NSLog(@"R e z u l t    %@", object);
         
         [[object objectForKey:@"foto"]getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
             
@@ -93,18 +85,12 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
-    NSLog(@"Range location  %lu ", (unsigned long)range.location);
-    NSLog(@"Range length  %lu ", (unsigned long)range.length);
-    NSLog(@"Range    %@", string);
-    
     NSInteger newValue;
     
     if (![string  isEqual: @""]){
         newValue  = [[textField.text stringByAppendingString:string]integerValue ];
     }else {
         newValue  = [[textField.text substringToIndex:range.location]integerValue];
-        
-        NSLog(@"Range    %ld", (long)newValue);
     }
     
     
@@ -116,8 +102,6 @@
     return NO;
     }
 }
-
-
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     if (!textField.hasText  || [textField.text integerValue] == 0 ) {
@@ -137,7 +121,7 @@
        _sumLabel.text =  [NSString stringWithFormat:@"%@ %.2f", [_settingsUserDefault getDefaultCurrencySign], price * units];
     }
     
-    _kgLabel.text =  [NSString stringWithFormat:@"%@ %.2ld", NSLocalizedString(@"Weight", nil), weight * units];
+    _kgLabel.text =  [NSString stringWithFormat:@"%@ %.0d", NSLocalizedString(@"Weight", nil), weight * units];
 }
 
 
@@ -216,13 +200,6 @@
     }else{
         [self performSegueWithIdentifier:@"UnwindEditProductTo" sender:self];
     }
-    
-    
-    
-    
- //    if ([_sourceViewControllerName isEqualToString:@"newSelectProduct"]){
- //        [self dismissViewControllerAnimated:YES completion:nil];
- //    }
 }
 
 - (IBAction)cancel:(id)sender {

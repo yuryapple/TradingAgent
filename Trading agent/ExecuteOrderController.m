@@ -14,8 +14,6 @@
 @property (nonatomic, retain) NSMutableDictionary *sectionOrder;
 @property (nonatomic, retain) NSMutableDictionary *sections1;
 
-//@property (nonatomic, strong) SliderForFooter *sl;
-//@property (nonatomic ,strong) NSMutableArray * sArray;
 @end
 
 @implementation ExecuteOrderController
@@ -65,9 +63,6 @@
     [self.sectionOrder setObject:clientName forKey:[NSNumber numberWithInt:0]];
     [objectsInSection addObject:[NSNumber numberWithInt:0]];
     [self.sections setObject:objectsInSection forKey:clientName];
-    
-    
-    NSLog(@" view   Did    Load  ");
 }
 
 - (void)viewDidUnload
@@ -100,10 +95,6 @@
 }
 
 
-
-
-
-
 #pragma mark - PF Query Table View Controller
 
 - (PFQuery *)queryForTable
@@ -113,19 +104,10 @@
                                 [[NSString stringWithFormat:@"%ld36700",(long)[_settingsUserDefault getDefaultOwnerNumber]] integerValue]
     ];
     
-    
-    
-    
-    NSLog(@"%@", predicate);
-    
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName  predicate:predicate];
     [query whereKey:@"dateComplete" equalTo:[NSNull null]];
     [query orderByAscending:@"clientID"];
     [query addDescendingOrder:@"numberOrder"];
-    
-    
-    
-    //PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
@@ -133,22 +115,6 @@
        query.cachePolicy = kPFCachePolicyCacheElseNetwork;
        query.maxCacheAge = 1;
      }
- 
-
-    
-  //  PFQuery *query = [PFQuery queryWithClassName:self.parseClassName  predicate:predicate];
-    
-    
-   // [query whereKey:@"dateComplete" equalTo:[NSNull null]];
-    
-    
-    
-    
-  //  [query whereKey:@"numberOrder" begi : [@([_settingsUserDefault getDefaultOwnerNumber]) stringValue]];
-    
-    
-//    [query orderByAscending:@"clientID"];
-//    [query addDescendingOrder:@"numberOrder"];
     
     return query;
 }
@@ -157,11 +123,7 @@
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
-    
-    
-    NSLog(@"All objects in table   %@", self.objects);
-    
-    
+
     [self.sections removeAllObjects];
     [self.sectionOrder removeAllObjects];
     [self.sections1 removeAllObjects];
@@ -169,9 +131,6 @@
     
     NSInteger section = 0;
     NSInteger rowIndex = 0;
-    
-    
-    
     
     for (PFObject *object in self.objects) {
         
@@ -187,7 +146,6 @@
             objectsOrderInSection = [NSMutableArray array];
             
             [self.sectionOrder setObject:clientID forKey:[NSNumber numberWithInt:section++]];
-            // [self.sectionOrderNumber setObject:numberOrder forKey:[NSNumber numberWithInt:section]];
         }
         
         [objectsInSection addObject:[NSNumber numberWithInt:rowIndex++]];
@@ -198,16 +156,7 @@
         
     }
     
-    
-    NSLog(@"All objects in   s e c t i o n    %@", self.sections);
-    NSLog(@"All objects in    s e c t i o n 1     %@", self.sections1);
-    
-    
-    
     [self.tableView reloadData];
-    
-    NSLog(@"error: %@", [error localizedDescription]);
-    
 }
 
 
@@ -217,8 +166,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FoodCell"];
-    
-    
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FoodCell"];
@@ -232,8 +179,6 @@
                                                                dateStyle:NSDateFormatterShortStyle
                                                                timeStyle:NSDateFormatterNoStyle];
     dateOrderLabel.text = dateOrderString;
-    
-    
     
     return cell;
 }
@@ -251,32 +196,22 @@
     if ([self.objects count]){
         return [self.objects objectAtIndex:[rowIndex intValue]];
     }
-    return self.sectionOrder ;
+    return (PFObject*)self.sectionOrder ;
 }
 
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@" ========= %d", self.sectionOrder.allKeys.count);
-    
     return self.sectionOrder.allKeys.count;
 }
-
-
-
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     NSString *categoryFoodName = [self headerForCategory1:section];
-    //  NSArray *rowIndecesInSection = [self.sections objectForKey:categoryFoodName];
     NSArray *rowIndecesInSection = [self.sections1 objectForKey:categoryFoodName];
     
-    NSLog(@"rowIndecesInSection %@ ", rowIndecesInSection);
-    
-    
-     return rowIndecesInSection.count;
-    
+    return rowIndecesInSection.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -287,15 +222,10 @@
 
 
 - (NSString *)headerForCategory1:(NSInteger)section {
-    NSLog(@" headerForCategory1  %@ ", [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]]);
-    
     return [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]];
 }
 
-
-
 - (NSString *)headerForCategory:(NSInteger)section {
-    //return [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]];
     NSString *fullName;
     NSString *clientID = [self.sectionOrder objectForKey:[NSNumber numberWithInt:section]];
     
@@ -314,30 +244,16 @@
 }
 
 
-
-
-
-
-
-
 #pragma mark - Navigation
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-   // PFObject *selectObject = [self.objects objectAtIndex: [self.tableView indexPathForCell:sender].row];
-   //    NSString *numberOrder = [[selectObject  objectForKey:@"numberOrder"]stringValue];
-    
     UILabel *orderLabel = (UILabel*) [sender viewWithTag:100];
     NSString *numberOrder = orderLabel.text;
-    
- 
     
     OrderClienController *controller = (OrderClienController *)[[segue destinationViewController] topViewController];
     [controller setNumberOrder :numberOrder];
 }
-
-
-
 
 @end

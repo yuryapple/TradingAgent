@@ -34,8 +34,6 @@
         
         self.sections = [NSMutableDictionary dictionary];
         self.sectionFood = [NSMutableDictionary dictionary];
-        
-        
     }
     return self;
 }
@@ -66,19 +64,11 @@
     
     NSMutableArray *objectsInSection = [NSMutableArray array];
     
-    // this is the first time we see this sportType - increment the section index
     [self.sectionFood setObject:category forKey:[NSNumber numberWithInt:0]];
     
     
     [objectsInSection addObject:[NSNumber numberWithInt:0]];
     [self.sections setObject:objectsInSection forKey:category];
-    
-    NSLog(@"oigoerghdfughfduhg");
-    
-    
-    NSLog(@"Objects %@", self.objects);
-    
-    
 }
 
 
@@ -106,22 +96,12 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
-    // If no objects are loaded in memory, we look to the cache first to fill the table
-    // and then subsequently do a query against the network.
-    // if ([self.objects count] == 0) {
-    //   query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    // }
-    
-    // [query whereKey:@"objectId" notEqualTo:@"JXCjcqAYc9"];
     NSArray *selectedProduct = [NSArray arrayWithObjects: @"JXCjcqAYc9", nil];
     
     [query whereKey:@"objectId" notContainedIn:selectedProduct];
     
     [query orderByAscending:@"category"];
     [query addAscendingOrder:@"product"];
-    
-    
-    NSLog(@"queryForTable");
     
     return query;
 }
@@ -134,8 +114,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FoodCell"];
     }
-    
-    // PFObject *object = [self objectAtIndexPath:indexPath];
     
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"foto"];
@@ -159,23 +137,13 @@
 {
     [super objectsDidLoad:error];
     
-    
-    
-    NSLog(@" objectsDidLoad   ");
-    
-    
     [self.sections removeAllObjects];
     [self.sectionFood removeAllObjects];
     
     NSInteger section = 0;
     NSInteger rowIndex = 0;
     
-     NSLog(@"___________________________  %@", self.objects);
-    
-    
     for (PFObject *object in self.objects) {
-        
-   
         
         NSString *category = [object objectForKey:@"categoryName"];
         
@@ -183,7 +151,7 @@
         if (!objectsInSection) {
             objectsInSection = [NSMutableArray array];
             
-            // this is the first time we see this sportType - increment the section index
+           
             [self.sectionFood setObject:category forKey:[NSNumber numberWithInt:section++]];
         }
         
@@ -191,18 +159,8 @@
         [self.sections setObject:objectsInSection forKey:category];
     }
     
-    NSLog(@"___:::____  %@", [self.objects objectAtIndex:0]);
-    
-    NSLog(@"Sections: %@", self.sections);
-    NSLog(@"Sections: %@", self.sectionFood);
-    
     [self.tableView reloadData];
-    
-    NSLog(@"error: %@", [error localizedDescription]);
-    
 }
-
-
 
 
 - (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
@@ -210,19 +168,15 @@
     NSArray *rowIndecesInSection = [self.sections objectForKey:categoryFoodName];
     NSNumber *rowIndex = [rowIndecesInSection objectAtIndex:indexPath.row];
     
-    
     if ([self.objects count]){
-        NSLog(@"Objects %@", self.objects);
         return [self.objects objectAtIndex:[rowIndex intValue]];
     }
-    return self.sectionFood ;
+    return (PFObject *)self.sectionFood ;
 }
 
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"Number section----- : %d", self.sections.allKeys.count);
-    // return self.sectionFood.allKeys.count;
     return 1;
 }
 
@@ -231,11 +185,7 @@
     NSString *categoryFoodName = [self headerForCategory:section];
     NSArray *rowIndecesInSection = [self.sections objectForKey:categoryFoodName];
     
-    NSLog(@"umber Of rows In  section : %d", rowIndecesInSection.count);
-    
     return rowIndecesInSection.count;
-    
-    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -245,23 +195,10 @@
 }
 
 - (NSString *)headerForCategory:(NSInteger)section {
-    NSLog(@"Header section : %@", [self.sectionFood objectForKey:[NSNumber numberWithInt:section]]);
-    
     return [self.sectionFood objectForKey:[NSNumber numberWithInt:section]];
-    
-    
 }
 
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -68,8 +68,6 @@
         [_convertProd convertParseToCoreData:_numberOrder];
       
     }
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
      self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -108,8 +106,6 @@
 #pragma mark - ConvertProductsDelegate
 
 -(void)convertDidCompliteParseToCoreData{
-    NSLog(@"Successfully convert  To CoreData");
-    
       _didConvert = YES;
      [self.tableView reloadData];
 }
@@ -124,15 +120,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"numberOfSectionsInTableView %lu" , [[self.fetchedResultsController sections] count]);
-    
      return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-    
-    NSLog(@"s      Objects       %@", [self.fetchedResultsController description]);
     
     [self saveButtonEnable: [sectionInfo numberOfObjects]];
     return [sectionInfo numberOfObjects];
@@ -166,21 +158,6 @@
 }
 
 
-
-
-/*
--(NSString *) clientIDFromOrder: (NSString *)numberOrder {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"numberOrder == %d", [numberOrder integerValue]];
-    PFQuery *query = [PFQuery queryWithClassName:@"Order" predicate:predicate];
-    NSError *error = nil;
-    NSArray *client =  [query findObjects:&error];
-    
-    return [[client objectAtIndex:0] valueForKey:@"clientID"];
-}
-*/
-
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
@@ -193,10 +170,7 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     NSString *productID = [object valueForKey:@"objectIDProductParse"];
-    
-    
-    
-    
+
     // GET data from Parse (Image and Name of product)
 
     PFQuery *query = [PFQuery queryWithClassName:@"FoodProduct"];
@@ -212,31 +186,10 @@
     
     UILabel *productName = (UILabel*) [cell viewWithTag:101];
     productName.text = [[product valueForKey:@"product"] description];
-    
-    NSLog(@"^^^^^^^^^^^ %@ ",  [product valueForKey:@"product"] );
         
     }];
     
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // GET data from CORE DATA
-    
     UILabel *productPrice = (UILabel*) [cell viewWithTag:102];
     
     if ([_settingsUserDefault getDefaultCurrencyNumber] == 0 ){
@@ -244,11 +197,6 @@
     } else {
          productPrice.text =  [NSString stringWithFormat:@"%@ %@", [_settingsUserDefault getDefaultCurrencySign],  [[object valueForKey:@"price"] description]];
     }
-
-
-    
-    NSLog(@"^^^^^^^^^^^ %@ ",  [object valueForKey:@"price"] );
-    
     
     UILabel *productUnits = (UILabel*) [cell viewWithTag:103];
     productUnits.text = [[object valueForKey:@"units"] description] ;
@@ -262,22 +210,8 @@
     } else {
         productSum.text =  [NSString stringWithFormat:@"%@ %@", [_settingsUserDefault getDefaultCurrencySign],  [@([[object valueForKey:@"price"] doubleValue] *  [[object valueForKey:@"units"]integerValue]) stringValue]];
     }
-    
-  //  productSum.text = [@([[object valueForKey:@"price"] doubleValue] *  [[object valueForKey:@"units"]integerValue]) stringValue] ;
-    
-    
       cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -289,23 +223,6 @@
          [[SharedManagedObjectContext sharedManager] saveContext];
     }
 }
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
 
 
 #pragma mark - Fetched results controller
@@ -332,12 +249,6 @@
     
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"order.numberOrder = %d", [_numberOrder integerValue]];
     [fetchRequest setPredicate:pred];
-    
-    NSLog(@"                      order.numberOrder == %ld", (long)[_numberOrder integerValue]);
-    
-    NSError * e = nil;
-    
-    NSLog(@"                  fetch        %@                         ",[_managedObjectContext executeFetchRequest:fetchRequest error: &e ]);
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
@@ -391,6 +302,9 @@
             [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
             
+        case NSFetchedResultsChangeMove:
+            // Do not move
+            break;
     }
 }
 
@@ -405,9 +319,6 @@
     for ( NSManagedObject *obj in [self.fetchedResultsController fetchedObjects]){
         [productsInOrder addObject:[obj valueForKey:@"objectIDProductParse"]];
     }
-    
-    
-    NSLog(@"Exist products %@     --------", productsInOrder);
     return  productsInOrder;
 }
 
@@ -486,9 +397,6 @@
    if ([[segue identifier] isEqualToString:@"listProducts"]) {
        FoodListController *controller = (FoodListController *)[segue destinationViewController] ;
        
-       
-         NSLog(@"Exist products %@     --------", [self getListProductsIdInOrder]);
-       
        [controller setProductsExistInOrder :[self getListProductsIdInOrder]];
        [controller setNumberOrder : _numberOrder];
    }
@@ -507,15 +415,8 @@
 - (IBAction)editProductTo:(UIStoryboardSegue *)unwindSegue
 {
     if ([[unwindSegue identifier] isEqualToString:@"UnwindEditProductTo"]) {
-   //     ProductItemController* controller = unwindSegue.sourceViewController;
-   //     [_productsExistInOrder addObject:controller.productId];
-   //     [self loadObjects];
     }
 }
-
-
-
-
 
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender {
@@ -525,14 +426,8 @@
 
 
 
-
-
-
 - (IBAction)saveButton:(UIBarButtonItem *)sender {
     [_convertProd convertCoreDataToParse:_numberOrder forClientID:[self getClientID] withProducts:[self.fetchedResultsController fetchedObjects] forNewOrder: _isNew];
 }
-
-
-
 
 @end

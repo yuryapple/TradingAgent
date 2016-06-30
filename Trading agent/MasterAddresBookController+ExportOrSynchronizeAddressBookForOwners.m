@@ -23,11 +23,6 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Client"];
     [request setPredicate:predicate];
     
-  //  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updateAt" ascending:YES];
-    
-   // [request setSortDescriptors:@[sortDescriptor]];
-    
-    
     NSError *error = nil;
     
     NSArray *recInCore = [[self managedObjectContext] executeFetchRequest:request error:&error];
@@ -98,20 +93,9 @@
 
 
 -(NSArray *)getDiffRecordsFromParse:(NSArray *)recParse  withCoreDataMaxDate:(NSDate *)coreDateMax{
-    
-      NSLog(@"coreDateMax %@ ",coreDateMax);
-    
     if (!coreDateMax) {
-       // [coreDateMax initWithTimeIntervalSince1970:0];
         coreDateMax = [NSDate dateWithTimeIntervalSince1970:0];
-          NSLog(@"coreDateMax %@ ",coreDateMax);
-       // [coreDateMax dateWithTimeIntervalSince1970:0];
     }
-        
-        
-        
-    
-    NSLog(@"coreDateMax %@ ",coreDateMax);
     
     NSPredicate *afterDateCoreDateMax = [NSPredicate predicateWithBlock:
                             ^BOOL(id evaluatedObject, NSDictionary *bindings) {
@@ -122,11 +106,8 @@
                                     return NO;
                                 }
                             }];
+    
     NSArray *diffRecordsFromParse = [recParse filteredArrayUsingPredicate:afterDateCoreDateMax];
-    
-    
-    NSLog(@"%@", diffRecordsFromParse);
-
     
     return diffRecordsFromParse;
 }

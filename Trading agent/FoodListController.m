@@ -51,25 +51,14 @@
     
     _managedObjectContext =[[SharedManagedObjectContext sharedManager] managedObjectContext] ;
 
-    
-    
     NSString *category = @"categoryName";
     
     NSMutableArray *objectsInSection = [NSMutableArray array];
-        
     
-        [self.sectionFood setObject:category forKey:[NSNumber numberWithInt:0]];
-    
+    [self.sectionFood setObject:category forKey:[NSNumber numberWithInt:0]];
     
     [objectsInSection addObject:[NSNumber numberWithInt:0]];
     [self.sections setObject:objectsInSection forKey:category];
-    
-    NSLog(@"oigoerghdfughfduhg");
-    
-    
-    NSLog(@"Objects %@", self.objects);
-    
-  
 }
 
 
@@ -86,35 +75,6 @@
 }
 
 
-/*
-
--(NSMutableArray *) productsExistInOrder {
-    if (!_productsExistInOrder){
-        
-        return _productsExistInOrder = [NSMutableArray array];
-    }else{
-        return _productsExistInOrder;
-    }
-
-}
-
-
--(void)setProductsExistInOrder: (NSMutableArray *) array {
-
-        NSLog(@"array     --------");
-    
-        NSLog(@"array   %@     --------", array);
-    
-    
-     _productsExistInOrder = array ;
-    NSLog(@"array       kkkkkkkkkkkkkkkkk");
- 
-}
-*/
-
-
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -125,25 +85,10 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     
-    // If no objects are loaded in memory, we look to the cache first to fill the table
-    // and then subsequently do a query against the network.
-      // if ([self.objects count] == 0) {
-      //   query.cachePolicy = kPFCachePolicyCacheThenNetwork;
-      // }
-    
-   // [query whereKey:@"objectId" notEqualTo:@"JXCjcqAYc9"];
-//    NSArray *productsExist = [NSArray arrayWithObjects: @"JXCjcqAYc9", @"siBqY89Ywu"  , @"2BwtU0AS70" , nil];
-    
-  //    NSLog(@"productsExist %@     --------", productsExist);
-      NSLog(@"_productsExistInOrder  %@     --------", _productsExistInOrder);
-   
     [query whereKey:@"objectId" notContainedIn:_productsExistInOrder];
     
-       [query orderByAscending:@"category"];
-       [query addAscendingOrder:@"product"];
-
-  
-        NSLog(@"queryForTable");
+    [query orderByAscending:@"category"];
+    [query addAscendingOrder:@"product"];
     
     return query;
 }
@@ -157,7 +102,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FoodCell"];
     }
    
-   // PFObject *object = [self objectAtIndexPath:indexPath];
     
     // Configure the cell
     PFFile *thumbnail = [object objectForKey:@"foto"];
@@ -186,34 +130,20 @@
 - (void) objectsDidLoad:(NSError *)error
 {
     [super objectsDidLoad:error];
-    
-    
-          NSLog(@"_______  %@", self.objects);
-    
-    
-    NSLog(@" objectsDidLoad   ");
-    
-    
-    
-    
-    
-    
+
     [self.sections removeAllObjects];
     [self.sectionFood removeAllObjects];
     
     NSInteger section = 0;
     NSInteger rowIndex = 0;
     for (PFObject *object in self.objects) {
-        
-      //  NSLog(@"_______  %@", self.objects);
-        
+    
         NSString *category = [object objectForKey:@"categoryName"];
         
         NSMutableArray *objectsInSection = [self.sections objectForKey:category];
         if (!objectsInSection) {
             objectsInSection = [NSMutableArray array];
             
-            // this is the first time we see this sportType - increment the section index
             [self.sectionFood setObject:category forKey:[NSNumber numberWithInt:section++]];
         }
         
@@ -221,15 +151,7 @@
         [self.sections setObject:objectsInSection forKey:category];
     }
     
-     NSLog(@"___:::____  %@", [self.objects objectAtIndex:0]);
-    
-    NSLog(@"Sections: %@", self.sections);
-    NSLog(@"Sections: %@", self.sectionFood);
-    
     [self.tableView reloadData];
- 
-    NSLog(@"error: %@", [error localizedDescription]);
-   
 }
 
 
@@ -242,16 +164,14 @@
     
     
     if ([self.objects count]){
-      NSLog(@"Objects %@", self.objects);
-    return [self.objects objectAtIndex:[rowIndex intValue]];
+        return [self.objects objectAtIndex:[rowIndex intValue]];
     }
-    return self.sectionFood ;
+    return (PFObject *)self.sectionFood ;
 }
 
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-      NSLog(@"Number section : %d", self.sections.allKeys.count);
      return self.sectionFood.allKeys.count;
 }
 
@@ -260,11 +180,7 @@
     NSString *categoryFoodName = [self headerForCategory:section];
     NSArray *rowIndecesInSection = [self.sections objectForKey:categoryFoodName];
     
-    NSLog(@"umber Of rows In  section : %d", rowIndecesInSection.count);
-    
     return rowIndecesInSection.count;
-
-    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -274,11 +190,7 @@
 }
 
 - (NSString *)headerForCategory:(NSInteger)section {
-     NSLog(@"Header section : %@", [self.sectionFood objectForKey:[NSNumber numberWithInt:section]]);
-    
     return [self.sectionFood objectForKey:[NSNumber numberWithInt:section]];
-  
-    
 }
 
 
@@ -297,39 +209,34 @@
         NSNumber *rowIndex = [rowIndecesInSection objectAtIndex:selectCellPath.row];
         
         PFObject *selectObject = [self.objects objectAtIndex: [rowIndex intValue]];
-
-    
-
         
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"numberOrder = %d",[_numberOrder intValue]];
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"numberOrder = %d",[_numberOrder intValue]];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Order"];
     
-    request.predicate = predicate;
-    
-    
-    NSManagedObject *currentOrder = [[[self managedObjectContext] executeFetchRequest:request error:nil] objectAtIndex:0];
-    
-    NSMutableSet *orderProduct = [currentOrder mutableSetValueForKey:@"orderProducts"];
+        request.predicate = predicate;
     
     
-    NSEntityDescription *productCoreDate = [NSEntityDescription entityForName:@"OrderProduct" inManagedObjectContext:_managedObjectContext];
-    NSManagedObject *newProduct = [[NSManagedObject alloc] initWithEntity:productCoreDate insertIntoManagedObjectContext:_managedObjectContext];
-    [newProduct setValue:[selectObject valueForKey:@"objectId"] forKey:@"objectIDProductParse"];
-    [newProduct setValue:[selectObject valueForKey:@"weight"] forKey:@"weight"];
-    [newProduct setValue:[selectObject valueForKey:@"price"] forKey:@"price"];
-    [newProduct setValue:@(1) forKey:@"units"];
+        NSManagedObject *currentOrder = [[[self managedObjectContext] executeFetchRequest:request error:nil] objectAtIndex:0];
     
-    [orderProduct  addObject:newProduct ];
-    
-    [[SharedManagedObjectContext sharedManager] saveContext];
+        NSMutableSet *orderProduct = [currentOrder mutableSetValueForKey:@"orderProducts"];
     
     
-    ProductItemController *controller = (ProductItemController *)[segue destinationViewController] ;
-    [controller setSourceViewControllerName : @"newSelectProduct"];
-    [controller setNumberOrder :_numberOrder];
-    [controller setSelectProduct : newProduct];
-  
-}
+        NSEntityDescription *productCoreDate = [NSEntityDescription entityForName:@"OrderProduct" inManagedObjectContext:_managedObjectContext];
+        NSManagedObject *newProduct = [[NSManagedObject alloc] initWithEntity:productCoreDate insertIntoManagedObjectContext:_managedObjectContext];
+        [newProduct setValue:[selectObject valueForKey:@"objectId"] forKey:@"objectIDProductParse"];
+        [newProduct setValue:[selectObject valueForKey:@"weight"] forKey:@"weight"];
+        [newProduct setValue:[selectObject valueForKey:@"price"] forKey:@"price"];
+        [newProduct setValue:@(1) forKey:@"units"];
+    
+        [orderProduct  addObject:newProduct ];
+    
+        [[SharedManagedObjectContext sharedManager] saveContext];
+    
+        ProductItemController *controller = (ProductItemController *)[segue destinationViewController] ;
+        [controller setSourceViewControllerName : @"newSelectProduct"];
+        [controller setNumberOrder :_numberOrder];
+        [controller setSelectProduct : newProduct];
+    }
 
 }
 

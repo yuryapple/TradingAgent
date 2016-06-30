@@ -20,64 +20,6 @@
     return self;
 }
 
-/*
--(void)convertParseToCoreData:(NSString *) orderNumber{
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"numberOrder == %d", [orderNumber integerValue]];
-    PFQuery *query = [PFQuery queryWithClassName:@"Order" predicate:predicate];
-    NSError *error = nil;
-    NSArray *order = [query findObjects:&error];
-
-    
-    if ( order.count) {
-    
-        NSEntityDescription *orderCoreDate = [NSEntityDescription entityForName:@"Order" inManagedObjectContext:_managedObjectContext];
-        NSManagedObject *newOrder = [[NSManagedObject alloc] initWithEntity:orderCoreDate insertIntoManagedObjectContext:_managedObjectContext];
-    
-        // Set First and Lats Name
-        [newOrder setValue:[[order objectAtIndex:0] valueForKey:@"clientID"] forKey:@"clientID"];
-        [newOrder setValue:[[order objectAtIndex:0] valueForKey:@"numberOrder"] forKey:@"numberOrder"];
-    
-        NSMutableSet *orderProduct = [newOrder mutableSetValueForKey:@"orderProducts"];
- 
-        [[SharedManagedObjectContext sharedManager] saveContext];
-    
-        NSLog(@"  %@" , [order objectAtIndex:0]);
-    
-        PFRelation *relation = [[order objectAtIndex:0] relationForKey:@"objectIDOrderProducts"];
-    
-        // generate a query based on that relation
-        PFQuery *queryProd = [relation query];
-    
-        // now execute the query
-
-        NSArray *products =  [queryProd findObjects:&error];
-        
-            if (products.count) {
-                for (PFObject *object in products) {
-                    NSEntityDescription *productCoreDate = [NSEntityDescription entityForName:@"OrderProduct" inManagedObjectContext:_managedObjectContext];
-                    NSManagedObject *newProduct = [[NSManagedObject alloc] initWithEntity:productCoreDate insertIntoManagedObjectContext:_managedObjectContext];
-                    [newProduct setValue:[object valueForKey:@"productID"] forKey:@"objectIDProductParse"];
-                    [newProduct setValue:[object valueForKey:@"weight"] forKey:@"weight"];
-                    [newProduct setValue:[object valueForKey:@"price"] forKey:@"price"];
-                    [newProduct setValue:[object valueForKey:@"units"] forKey:@"units"];
-        
-                    [orderProduct  addObject:newProduct ];
-            
-                    [[SharedManagedObjectContext sharedManager] saveContext];
-                }
-            }
-    }
-    
-    [[SharedManagedObjectContext sharedManager] saveContext];
-
-    NSLog(@"Convert  to Core %@", orderNumber);
-    
-    [self.controllerDelegate  convertDidCompliteParseToCoreData];
-}
-
-*/
-
-
 -(void)convertParseToCoreData:(NSString *) orderNumber{
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"numberOrder == %d", [orderNumber integerValue]];
     PFQuery *query = [PFQuery queryWithClassName:@"Order" predicate:predicate];
@@ -87,16 +29,12 @@
            NSEntityDescription *orderCoreDate = [NSEntityDescription entityForName:@"Order" inManagedObjectContext:_managedObjectContext];
            NSManagedObject *newOrder = [[NSManagedObject alloc] initWithEntity:orderCoreDate insertIntoManagedObjectContext:_managedObjectContext];
            
-           // Set First and Lats Name
            [newOrder setValue:[order valueForKey:@"clientID"] forKey:@"clientID"];
            [newOrder setValue:[order valueForKey:@"numberOrder"] forKey:@"numberOrder"];
            
            NSMutableSet *orderProduct = [newOrder mutableSetValueForKey:@"orderProducts"];
            
            [[SharedManagedObjectContext sharedManager] saveContext];
-           
-           
-           
            
            PFRelation *relation = [order  relationForKey:@"objectIDOrderProducts"];
            
@@ -106,6 +44,7 @@
            // now execute the query
            [queryProd findObjectsInBackgroundWithBlock:^(NSArray * _Nullable products, NSError * _Nullable error) {
                if (!error){
+                   
                    if (products.count) {
                        for (PFObject *object in products) {
                            NSEntityDescription *productCoreDate = [NSEntityDescription entityForName:@"OrderProduct" inManagedObjectContext:_managedObjectContext];
@@ -122,11 +61,8 @@
                    }
                    
                    [[SharedManagedObjectContext sharedManager] saveContext];
-                   
-                   NSLog(@"Convert  to Core %@", orderNumber);
-                   
                    [self.controllerDelegate  convertDidCompliteParseToCoreData];
-            
+                   
                }else {
                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
                }
@@ -134,21 +70,8 @@
        }else {
            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
        }
-       
    }];
-    
-
-    
-
 }
-
-
-
-
-
-
-
-
 
 -(void)convertCoreDataToParse:(NSString *) orderNumber forClientID:(NSString *) clientID withProducts:(NSArray *) products forNewOrder: (BOOL) isNew {
     NSLog(@"Convert to Parse %@", orderNumber);
@@ -165,9 +88,10 @@
 
         
     }else{
-        // order was saved to Parse then was editing
+        // order was saved to Parse then it was editing
         PFQuery *query = [PFQuery queryWithClassName:@"Order"];
         [query whereKey:@"numberOrder" equalTo:@([orderNumber integerValue])];
+        
         [query getFirstObjectInBackgroundWithBlock:^(PFObject * _Nullable oldOrNewOrder, NSError * _Nullable error) {
             
             
@@ -180,9 +104,11 @@
             [query2 findObjectsInBackgroundWithBlock:^(NSArray * _Nullable oldProducts, NSError * _Nullable error) {
                
                 [PFObject deleteAllInBackground: oldProducts block:^(BOOL succeeded, NSError * _Nullable error) {
+                    
                     if (succeeded){
                         [self addProducts:products toOrder:oldOrNewOrder ];
                     }
+                    
                 }];
             }];
         }];
@@ -214,9 +140,6 @@
         
         if (succeeded) {
             [oldOrNewOrder saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                
-                
-                  NSLog(@"Save order  in Background and call delegate %d", succeeded );
                 if (succeeded){
                     [self.controllerDelegate  convertDidCompliteCoreDataToParse];
                 } else {

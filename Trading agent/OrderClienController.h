@@ -13,13 +13,13 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 
-//ConvertProductsDelegate
 
 @interface OrderClienController : UITableViewController <ConvertProductsDelegate ,NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) SharedSettingsUserDefault *settingsUserDefault;
 @property (nonatomic, strong ) NSString *numberOrder;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *add;
+
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
 - (IBAction)saveButton:(UIBarButtonItem *)sender;
 

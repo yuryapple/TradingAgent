@@ -250,8 +250,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LabelSum" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9b-T3-Wz6">
-                                            <rect key="frame" x="487" y="14" width="60" height="32"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelSum" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9b-T3-Wz6">
+                                            <rect key="frame" x="489" y="14" width="60" height="32"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.68950425390000003" green="0.0" blue="0.0070795987919999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>

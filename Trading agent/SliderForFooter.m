@@ -41,11 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _days =1;
-   // _label.text = [NSString stringWithFormat:@"%d %@",_days , NSLocalizedString(@"Days", nil)];
-    
    _label.text = [NSString localizedStringWithFormat:NSLocalizedString(@"%d Day(s)", nill), _days];
-
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,9 +53,7 @@
 - (IBAction)ShowValue:(id)sender {
     
      _days =(int)[(UISlider *)sender value];
-  //  _label.text = [NSString stringWithFormat:@"%d %@",_days , NSLocalizedString(@"Days", nil)];
-    
-      _label.text = [NSString localizedStringWithFormat:NSLocalizedString(@"%d Day(s)", nill), _days];
+     _label.text = [NSString localizedStringWithFormat:NSLocalizedString(@"%d Day(s)", nill), _days];
     
 }
 @end

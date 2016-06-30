@@ -59,10 +59,7 @@ return currencyNumber;
     NSURL * settingsURL =  [[NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Settings" withExtension:@"bundle"]] URLForResource:@"Root" withExtension:@"plist"];
     NSDictionary * settingsDict = [NSDictionary dictionaryWithContentsOfURL:settingsURL];
     
-    //NSArray * currecy = [[settingsDict valueForKeyPath:@"PreferenceSpecifiers.Titles"]objectAtIndex:0];
-    
     NSDictionary *currentSettings = [settingsDict valueForKey:@"PreferenceSpecifiers"];
-    
     
      for (id object in currentSettings){
          
