@@ -363,11 +363,7 @@
     
     _fetchedResultsController = nil;
     
-     NSLog(@"getCurrentOrderFromCore %@", [self getCurrentOrderFromCore] );
-    
     [_managedObjectContext deleteObject:[self getCurrentOrderFromCore]];
-    
-   // NSLog(@"getCurrentOrderFromCore %@", [self getCurrentOrderFromCore] );
     
     [[SharedManagedObjectContext sharedManager] saveContext];
     
