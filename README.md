@@ -6,7 +6,7 @@ Pilote version for trading agent
 	Заказ — содержит перечень продуктов питания и их количество, для последующей поставки розничному клиенту. Для обслуживания 
 одного клиента можно создать один или несколько заказов, но один заказ обслуживает только одного клиента.
 
-![Alt text](https://cloud.githubusercontent.com/assets/10370931/16762275/834d244a-482c-11e6-964f-e3ea4d4542ec.png "Order for client")
+![Alt text](https://cloud.githubusercontent.com/assets/10370931/16763648/6f1d75f0-4832-11e6-9af2-f3ec8ce49e62.png "Order for client")
 
 
 	Основная задача приложения — создание и последующее сопровождение заказов.
